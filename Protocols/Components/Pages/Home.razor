@@ -1,7 +1,68 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>The Protocols</PageTitle>
 
-<h1>Hello, world!</h1>
+<header class="controls">
+    <button>start</button>
+    <button>pause</button>
+    <button>stop</button>
+    <button>skip?</button>
 
-Welcome to your new app.
+    <progress value="0" max="100" />
+</header>
+
+<nav class="stats">
+    <table class="list">
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach()
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </table>
+    <section>
+        <div class="one">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="two">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="three">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="four">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="five">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+    </section>
+</nav>
+
+<main class="view">
+    <canvas id="canvas"></canvas>
+</main>
+
+<footer class="progress">
+    @foreach()
+    {
+        <div>
+            <progress value="0" max="100"/>
+            <p>label</p>
+        </div>
+    }
+</footer>
