@@ -2,18 +2,67 @@
 
 <PageTitle>The Protocols</PageTitle>
 
-<header>
-    <!-- For navation (start, pause, stop, progress) -->
+<header class="controls">
+    <button>start</button>
+    <button>pause</button>
+    <button>stop</button>
+    <button>skip?</button>
+
+    <progress value="0" max="100" />
 </header>
 
-<nav>
-    <!-- Left navbar for stats -->
+<nav class="stats">
+    <table class="list">
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach()
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </table>
+    <section>
+        <div class="one">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="two">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="three">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="four">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+        <div class="five">
+            <label>coś tam</label>
+            <input type="text" value="coś tam" disabled />
+        </div>
+    </section>
 </nav>
 
-<main>
-    <!-- Preview -->
+<main class="view">
+    <canvas id="canvas"></canvas>
 </main>
 
-<footer>
-    <!-- coś tam bar -->
+<footer class="progress">
+    @foreach()
+    {
+        <div>
+            <progress value="0" max="100"/>
+            <p>label</p>
+        </div>
+    }
 </footer>
