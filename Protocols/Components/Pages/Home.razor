@@ -11,58 +11,63 @@
     <progress value="0" max="100" />
 </header>
 
-<nav class="stats">
-    <table class="list">
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        @foreach()
-        {
+<section class="mid">
+    <nav class="nav">
+        <table class="list">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
             </tr>
-        }
-    </table>
-    <section>
-        <div class="one">
-            <label>coś tam</label>
-            <input type="text" value="coś tam" disabled />
-        </div>
-        <div class="two">
-            <label>coś tam</label>
-            <input type="text" value="coś tam" disabled />
-        </div>
-        <div class="three">
-            <label>coś tam</label>
-            <input type="text" value="coś tam" disabled />
-        </div>
-        <div class="four">
-            <label>coś tam</label>
-            <input type="text" value="coś tam" disabled />
-        </div>
-        <div class="five">
-            <label>coś tam</label>
-            <input type="text" value="coś tam" disabled />
-        </div>
-    </section>
-</nav>
+            <!--@foreach()
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }-->
+        </table>
+        <section class="stats">
+            <div class="one">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="two">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="three">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="four">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="five">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+        </section>
+    </nav>
 
-<main class="view">
-    <canvas id="canvas"></canvas>
-</main>
+    <main class="view">
+        Canvas
+        <canvas id="canvas"></canvas>
+    </main>
+</section>
+
 
 <footer class="progress">
-    @foreach()
+    Progress
+    <!--@foreach()
     {
         <div>
             <progress value="0" max="100"/>
             <p>label</p>
         </div>
-    }
+    }-->
 </footer>
