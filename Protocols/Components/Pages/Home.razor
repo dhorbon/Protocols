@@ -6,14 +6,54 @@
     <button>START</button>
     <button>PAUSE</button>
     <button>STOP</button>
-    <button>SKIP?</button>
+    <button>SKIP</button>
     <span id="progressvalue">12%</span>
     <progress value="12" max="100" />
 </header>
 
 <section class="mid">
     <nav class="nav">
+        <table class="list">
+            <tr>
+                <!-- First test station -->
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+            </tr>
+            <!--@foreach()
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }-->
+        </table>
+        
         <section class="stats">
+            <!-- stats for whole program -->
+            <div class="one">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="two">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="three">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="four">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
+            <div class="five">
+                <label>coś tam</label>
+                <input type="text" value="coś tam" disabled />
+            </div>
         </section>
     </nav>
 
@@ -26,7 +66,8 @@
 
 <footer class="progress">
     Progress
-    <!--@foreach()
+    <!-- Stats progress for each stations
+    @foreach()
     {
         <div>
             <progress value="0" max="100"/>
