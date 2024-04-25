@@ -1,4 +1,10 @@
 ﻿@page "/"
+@using System
+@using Protocols.Classes
+@{
+    System.Diagnostics.Debug.WriteLine("pre instantiation");
+    Simulation sim = new();
+}
 
 <PageTitle>The Protocols</PageTitle>
 
