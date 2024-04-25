@@ -1,36 +1,73 @@
-html, body {
-    height: 100%;
-    width: 100%;
+html, body 
+{
     margin: 0 !important;
     padding: 0 !important;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    bac
+    overflow:hidden;
+    max-height: 100vh !important;
 }
 
 
-a, .btn-link {
+a, .btn-link 
+{
     color: #006bb7;
 }
 
-.controls {
+.controls 
+{
     width: 100%;
     height: 68px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
-.controls button {
+.controls button.tinybtn 
+{
+    border: 0;
+    background-color: #2c6fd3;
+    box-shadow: black 5px 5px;
+    cursor: pointer;
+    width: 18px;
+    color: white;
+    position: relative;
+    bottom: 14px;
+    font-size: 14px;
+}
+
+.controls button.tinybtn:last-of-type
+{
+    top: 14px;
+    right: 22px;
+}
+
+.controls input[type=range]
+{
+    position: relative;
+    top: 8px;
+}
+
+
+.controls button:not(.tinybtn), .controls select 
+{
     color: white;
     background-color: #2c6fd3;
     border: 0;
-    font-size: 24px;
+    font-size: 16px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 10px;
     margin: 20px 20px 0 20px;
     cursor: pointer;
     box-shadow: black 10px 10px;
 }
+.controls select {margin-left: 0;}
 
-.controls progress[value] {
+.controls select:hover, .controls select:focus
+{
+    background-color:#d3902c;
+    outline: 0;
+}
+
+.controls progress[value] 
+{
     -webkit-appearance: none;
     box-shadow: black -10px 10px;
     appearance: none;
@@ -38,68 +75,155 @@ a, .btn-link {
     right: 20px;
     display: inline-block;
     width: 300px;
-    height: 40px;
+    height: 35px;
+    box-sizing: content-box;
     position: absolute;
     border: 2px solid #2c6fd3;
-     margin-top: 25px;
+    margin-top: 20px;
 }
+
+.controls progress[value]::-webkit-progress-bar {background-color: white;}
+
+.controls progress[value]::-webkit-progress-value {background-color: #2c6fd3;}
+
+
+.controls select option:disabled {color: black;}
 
 .controls button:hover, .controls button:focus 
 {
     background-color: #d3902c;
+    outline: 0;
 }
 
 .controls #progressvalue
 {
     position:absolute;
     right: 160px;
-    margin-top: 35px;
-    font-size: 20px;
+    margin-top: 31px;
+    font-size: 16px;
     z-index: 1;
 }
 
-.mid {
+.stats .view 
+{
+    overflow-y: auto;
+    height: calc(100vh - 88px)
+}
+
+table, tr, th, td
+{
+    border: none;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, tr{padding: 2px;}
+
+td:nth-child(even) {background-color: #e9c896;}
+
+.mid .list
+{
+    font-size: 12px;
+}
+
+.mid .list tr
+{
+    width: 100%;
+}
+
+.mid .list tr:first-of-type
+{
+    background-color: #d3902c;
+    color: white;
+}
+
+.mid h2
+{
+    color: white;
+    background-color: #2c6fd3;
+    margin: 0;
+    padding: 5px;
+}
+
+table, table tbody{ width: 100%;}
+
+.mid 
+{
     display: flex;
     flex-direction: row;
-    height: 75%;
     width: 100%;
 }
-
-.mid .nav {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
+.nav 
+{
+    width: 34%;
+    overflow-y:visible;
 }
 
-.mid .nav .list {
-    display: block;
-    /*width: 100%;*/
-    height: 50%;
-}
 
-.mid .nav .stats {
-    display: block;
-    /* width: 100%;*/
-    height: 50%; 
-}
-
-.mid .view {
-    /* display: inline-block;*/
-    width: 75%; 
-}
-
-.progress {
-    display: block;
-    width: 100%;
-    height: 50px;
-    background-color: #2c6fd3;
-    color: white;
+main, .view {
+    width: 66%;
+    height: calc(100vh - 88px);
 }
 
 canvas 
 {
-    background-color: #d3902c;
-    height: 100%;
+    height: calc(100vh - 88px);
     width: 100%;
+    background-color: gainsboro;
 }
 
+.protstats p
+{
+    margin: 0;
+    padding: 10px 5px;
+}
+
+.protstats p:nth-child(odd)
+{
+    background-color: #d3902c;
+    color: white;
+}
+
+.config p {
+    width: 50%;
+    margin: 0;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.config input
+{
+    width: calc(50% - 5px);
+    float: right;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #d3902c;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.mid 
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-height: calc(100vh - 88px); /* Adjust based on your needs */
+}
+
+.nav 
+{
+    width: 34%;
+    overflow-y: auto; /* Enable vertical scrolling within.nav */
+    overflow-x: hidden;
+    flex-shrink: 0; /* Prevent.nav from shrinking */
+}
+
+.view 
+{
+    width: 66%;
+    flex-grow: 1; /* Allow.view to take up remaining space */
+}
+
+/* Dziêkuje phind bardzo fajne! */

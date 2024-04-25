@@ -1,77 +1,96 @@
 ﻿@page "/"
+@using System
+@using Protocols.Classes
+@{
+    System.Diagnostics.Debug.WriteLine("pre instantiation");
+    Simulation sim = new();
+}
 
 <PageTitle>The Protocols</PageTitle>
 
 <header class="controls">
-    <button>START</button>
-    <button>PAUSE</button>
-    <button>STOP</button>
-    <button>SKIP</button>
+    <button id="protStart">START</button>
+    <button id="protPause">PAUSE</button>
+    <button id="portStop">STOP</button>
+    <button id="protSkip">SKIP</button>
+    <button class="tinybtn" id="addStation" title="Dodaj Stacje">+</button>
+    <button class="tinybtn" id="removeStation" title="Usuń Stacje">-</button>
+    <select id="protType">
+        <option disabled>Wybierz Protokół</option>
+        <option>Aloha</option>
+        <option>CSMA</option>
+        <option>BTMA</option>
+        <option>MSAP</option>
+        <option>SRMA</option>
+    </select>
+    <input type="range" value="0" max="100" title="Szybkość symulacji" />
     <span id="progressvalue">12%</span>
     <progress value="12" max="100" />
 </header>
 
 <section class="mid">
     <nav class="nav">
-        <table class="list">
-            <tr>
-                <!-- First test station -->
-                <th>a</th>
-                <th>b</th>
-                <th>c</th>
-                <th>d</th>
-            </tr>
-            <!--@foreach()
-            {
+        <section class="config">
+            <h2>Konfiguracja parametrów protokołu</h2>
+            <p>Czas do przygotowania klatki danych</p>
+            <input type="number" min="1" name="ttpdf" value="1"/>
+            <p>Czas do wysłania klatki danych</p>
+            <input type="number" min="1" name="ttsdf" value="1" />
+            <p>Maksymalny rozmiar klatki danych</p>
+            <input type="number" min="1" name="mdfl" value="1" />
+            <p>Maksymalna przerwa przed przekazem ponownie</p>
+            <input type="number" min="1" name="mdbr" value="1" />
+        </section>
+        <section class="statstats">
+            <h2>Statystyki stacji</h2>
+            <table class="list">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <!-- First test station -->
+                    <th>ID Stacji</th>
+                    <th>Stan</th>
+                    <th>Do wysłania</th>
+                    <th>Odbiorca</th>
+                    <th>Odbieranie?</th>
+                    <th>Błąd odbierania?</th>
+                    <th>Przygotowywanie</th>
+                    <th>Opóźnienie</th>
+                    <th>Przekazywanie</th>
                 </tr>
-            }-->
-        </table>
-        
-        <section class="stats">
-            <!-- stats for whole program -->
-            <div class="one">
-                <label>coś tam</label>
-                <input type="text" value="coś tam" disabled />
-            </div>
-            <div class="two">
-                <label>coś tam</label>
-                <input type="text" value="coś tam" disabled />
-            </div>
-            <div class="three">
-                <label>coś tam</label>
-                <input type="text" value="coś tam" disabled />
-            </div>
-            <div class="four">
-                <label>coś tam</label>
-                <input type="text" value="coś tam" disabled />
-            </div>
-            <div class="five">
-                <label>coś tam</label>
-                <input type="text" value="coś tam" disabled />
-            </div>
+                <tr>
+                    <td>1</td>
+                    <td>SENDING</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>no</td>
+                    <td>no</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>PREPARING</td>
+                    <td>15</td>
+                    <td>1</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </section>
+        <section class="protstats">
+            <h2>Statystyki protokołów</h2>
+            <p>Klatki kontrolne: <span class="cframes">0</span></p>
+            <p>Klatki prawidłowe: <span class="gframes">2</span></p>
+            <p>Klatki danych: <span class="dframes">2</span></p>
+            <p>Klatki błędne: <span class="eframes">0</span></p>
+            <p>Razem klatek: <span class="aframes">2</span></p>
         </section>
     </nav>
 
     <main class="view">
-        canvas
         <canvas id="canvas"></canvas>
     </main>
 </section>
-
-
-<footer class="progress">
-    Progress
-    <!-- Stats progress for each stations
-    @foreach()
-    {
-        <div>
-            <progress value="0" max="100"/>
-            <p>label</p>
-        </div>
-    }-->
-</footer>
