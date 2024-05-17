@@ -2,7 +2,6 @@
 @using System
 @using Protocols.Classes
 @{
-    System.Diagnostics.Debug.WriteLine("pre instantiation");
     Simulation sim = new();
 }
 
@@ -16,6 +15,9 @@
     <button class="tinybtn" id="addStation" title="Dodaj Stacje">+</button>
     <button class="tinybtn" id="removeStation" title="Usuń Stacje">-</button>
     <select id="protType">
+        @{/*
+         * dynamically use sim.protocols
+         * */}
         <option disabled>Wybierz Protokół</option>
         <option>Aloha</option>
         <option>CSMA</option>
@@ -46,6 +48,9 @@
             <table class="list">
                 <tr>
                     <!-- First test station -->
+                    @{/*
+                     * dynamically use sim.stats
+                     * */}
                     <th>ID Stacji</th>
                     <th>Stan</th>
                     <th>Do wysłania</th>

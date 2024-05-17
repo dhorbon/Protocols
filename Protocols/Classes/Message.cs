@@ -9,7 +9,7 @@
             this.content = content;
             this.timeToRecieve = timeToRecieve;
         }
-
+        
         public string? TryRecieve()
         {
             if(timeToRecieve == 1)

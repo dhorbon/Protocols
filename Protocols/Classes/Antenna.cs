@@ -1,13 +1,15 @@
-﻿
-
-namespace Protocols.Classes
+﻿namespace Protocols.Classes
 {
     public class Antenna
     {
         public float x;
         public float y;
 
+        public string name;
+
         public string recieved = "";
+
+        public int antennaNumber;
 
         private Simulation simReference;
 
@@ -16,13 +18,16 @@ namespace Protocols.Classes
 
         private List<Message> incomingMessages = new();
 
-        public Antenna(float x, float y, List<IProtocol> protocols, Simulation simulation, int curProtocol)
+        public Antenna(string name, float x, float y, List<IProtocol> protocols, Simulation simulation, int curProtocol, int antennaNumber)
         {
+            this.name = name;
             this.x = x;
             this.y = y;
             this.protocols = protocols;
             simReference = simulation;
             this.curProtocol = curProtocol;
+            this.antennaNumber = antennaNumber;
+            simReference.AddAntenna(this);
         }
 
         public float DistanceTo(Antenna target)
@@ -58,6 +63,11 @@ namespace Protocols.Classes
         public void Save(string content)
         {
             recieved += content;
+        }
+
+        public void Report(string state, string packagesToSend, string sendingTo)
+        {
+            simReference.Report(state, this, packagesToSend, sendingTo);
         }
     }
 }
